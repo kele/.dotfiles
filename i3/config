@@ -170,7 +170,7 @@ set $mode_system System (1) lock, (2) logout, (3) suspend, (4) hibernate, (5) re
 mode "$mode_system" {
 # TODO
     bindsym 1 exec --no-startup-id i3lock, mode "default"
-    bindsym 2 exec --no-startup-id ~/.bin/logout.sh, mode "default"
+    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
     bindsym 3 exec --no-startup-id ~/.bin/suspend.sh, mode "default"
     bindsym 4 exec --no-startup-id ~/.bin/hibernate.sh, mode "default"
     bindsym 5 exec --no-startup-id ~/bin/i3exit reboot, mode "default"
