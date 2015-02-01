@@ -184,3 +184,11 @@ bindsym $mod+Pause mode "$mode_system"
 
 # move workspace to output to the right (toggles if two workspaces)
 bindsym $mod+x move workspace to output right
+
+
+# Autostart apps
+# set background
+exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/small-evil_eyes.png
+
+# run redshift
+exec --no-startup-id redshift-gtk -l 51:17 -t 5500:4300
