@@ -95,4 +95,4 @@ alias todo="cat ~/todo"
 export CXXFLAGS="-std=c++11 -g"
 export CXX=clang++
 
-echo `cd .dotfiles; git status -s; cd ~`
+echo `pushd > /dev/null; cd ~/.dotfiles; git status -s; popd > /dev/null`
