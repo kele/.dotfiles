@@ -39,6 +39,7 @@ Plugin 'Mark'
 Plugin 'tpope/vim-surround' 
 Plugin 'tpope/vim-ragtag'
 Plugin 'pangloss/vim-javascript'
+Plugin 'suan/vim-instant-markdown'
 
 
 " All of your Plugins must be added before the following line
@@ -186,3 +187,6 @@ let g:ctrlp_custom_ignore = {
 " YouCompleteMe
 let g:ycm_auto_trigger = 1
 let g:ycm_global_ycm_extra_conf = "/home/kele/.vim/ycm_global_conf.py"
+
+" Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
