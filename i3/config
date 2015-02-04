@@ -149,11 +149,12 @@ bar {
         modifier $mod
 }
 
-bindsym $mod+Shift+comma exec amixer set Master 1%-
-bindsym $mod+Shift+period exec amixer set Master 1%+
+bindsym $mod+Shift+comma exec amixer set Master 2%-
+bindsym $mod+Shift+period exec amixer set Master 2%+
+bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle
 
-bindsym XF86AudioRaiseVolume exec amixer set Master 1%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer set Master 1%- #decrease sound volume
+bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer set Master 2%- #decrease sound volume
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 
 
