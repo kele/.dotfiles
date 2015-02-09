@@ -191,7 +191,7 @@ bindsym $mod+x move workspace to output right
 
 # Autostart apps
 # set background
-exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/small-evil_eyes.png
+exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/Color.jpg
 
 # run redshift
 exec --no-startup-id redshift-gtk -l 51:17 -t 5500:4300

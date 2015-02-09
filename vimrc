@@ -40,6 +40,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-ragtag'
 Plugin 'pangloss/vim-javascript'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'szw/vim-ctrlspace'
+Plugin 'ryanss/vim-hackernews'
 
 
 " All of your Plugins must be added before the following line
@@ -161,12 +163,6 @@ map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Plugins
-
-" Jedi-vim
-let g:jedi#popup_select_first = 0	" don't select first entry on autocompletion
-let g:jedi#use_tabs_not_buffers = 0  " don't open new tab when jumping
-let g:jedi#completions_command = '<C-Space>'
-
 " NERDTree
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
@@ -190,3 +186,7 @@ let g:ycm_global_ycm_extra_conf = "/home/kele/.vim/ycm_global_conf.py"
 
 " Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Ctrlspace
+let g:ctrlspace_set_default_mapping = 1
+let g:ctrlspace_default_mapping_key = "<C-a>"
