@@ -195,3 +195,6 @@ exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/Color.jpg
 
 # run redshift
 exec --no-startup-id redshift-gtk -l 51:17 -t 5500:4300
+
+# add network manager
+exec --no-startup-id nm-applet
