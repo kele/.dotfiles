@@ -31,7 +31,7 @@ Plugin 'davidhalter/jedi-vim' " jedi autocompletion library (Python!)
 Plugin 'scrooloose/nerdtree' " NERD Tree
 Plugin 'kien/ctrlp.vim' " CtrlP (fuzzy search)
 Plugin 'tpope/vim-commentary' " gc for commenting
-Plugin 'wting/rust.vim' " Rust
+Plugin 'rust-lang/rust.vim' " Rust
 Plugin 'klen/python-mode' " Python mode
 Plugin 'vim-scripts/Mark--Karkat' " Allows marking words multiple times
 Plugin 'Valloric/YouCompleteMe' " YCM
@@ -190,3 +190,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Ctrlspace
 let g:ctrlspace_set_default_mapping = 1
 let g:ctrlspace_default_mapping_key = "<C-a>"
+
+set clipboard=unnamedplus
+
+au BufRead,BufNewFile *.rs map <leader>b :!cargo build<CR>
+au BufRead,BufNewFile *.rs map <leader>r :!cargo run<CR>

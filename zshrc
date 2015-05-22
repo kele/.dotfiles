@@ -1,6 +1,6 @@
 # Autoload tmux
 export TERM='screen-256color'
-if [ "$TMUX" = "" ]; then tmux attach-session && exit; fi
+if [ "$TMUX" = "" ]; then tmux new-session && exit; fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man screen pip python pyenv ssh-agent)
+plugins=(kele colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,4 +95,6 @@ alias todo="cat ~/todo"
 export CXXFLAGS="-std=c++11 -g"
 export CXX=clang++
 
-echo `pushd > /dev/null; cd ~/.dotfiles; git status -s; popd > /dev/null`
+# echo `pushd > /dev/null; cd ~/.dotfiles; git status -s; popd > /dev/null`
+
+export PATH=~/.cabal/bin:$PATH
