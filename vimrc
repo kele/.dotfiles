@@ -27,21 +27,21 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 
-Plugin 'davidhalter/jedi-vim' " jedi autocompletion library (Python!)
+"Plugin 'davidhalter/jedi-vim' " jedi autocompletion library (Python!)
 Plugin 'scrooloose/nerdtree' " NERD Tree
 Plugin 'kien/ctrlp.vim' " CtrlP (fuzzy search)
 Plugin 'tpope/vim-commentary' " gc for commenting
 Plugin 'rust-lang/rust.vim' " Rust
-Plugin 'klen/python-mode' " Python mode
-Plugin 'vim-scripts/Mark--Karkat' " Allows marking words multiple times
+"Plugin 'klen/python-mode' " Python mode
+"Plugin 'vim-scripts/Mark--Karkat' " Allows marking words multiple times
 Plugin 'Valloric/YouCompleteMe' " YCM
 Plugin 'Mark'
-Plugin 'tpope/vim-surround' 
-Plugin 'tpope/vim-ragtag'
-Plugin 'pangloss/vim-javascript'
-Plugin 'suan/vim-instant-markdown'
+"Plugin 'tpope/vim-surround' 
+"Plugin 'tpope/vim-ragtag'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'suan/vim-instant-markdown'
 Plugin 'szw/vim-ctrlspace'
-Plugin 'ryanss/vim-hackernews'
+"Plugin 'ryanss/vim-hackernews'
 
 
 " All of your Plugins must be added before the following line
