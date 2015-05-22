@@ -44,40 +44,22 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man ssh-agent)
+plugins=(colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
-# Tmux is unhappy with these lines
-# 256 colours in terminal
-#if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-#    export TERM='xterm-256color'
-#else
-#    export TERM='xterm-color'
-#fi
-
-
-
-alias g++11="g++ -std=c++11"
-alias clang++11="clang++ -std=c++11"
 alias rm=trash
-alias pinggateway="ping `/sbin/ip route | awk '/default/ { print $3 }'`"
-alias -g zatwierdz=commit
-alias purge="sudo apt-get purge"
 alias install="sudo apt-get install"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get autoremove -y --purge && sudo apt-get update; sudo apt-get upgrade -y"
-alias inbox="cd ~/inbox"
-alias work="cd ~/work"
 
 # Without this, vim tries to connect with X server which causes a 1s lag in tmux
 #alias vim="vim -X"
 
 alias usermount="sudo mount -o rw,nosuid,nodev,uid=1000,gid=1000,shortname=mixed,dmask=0077,showexec,flush"
-
 
 # Welcome message for login shells
 echo
@@ -86,15 +68,5 @@ print -P "\e[1;30m Running: \e[1;31m`uname -srm`\e[1;30m on \e[1;31m%l"
 print -P "\e[1;30m It is:\e[1;31m %D{%r}\e[1;30m on \e[1;31m%D{%f-%m-%G}"
 print -P "\e[1;30m Battery state:\e[1;31m `acpi | sed -e 's/%/%%/'`"
 
-echo
-print -P "\e[1;30mTodo: \e[1;31m"
-cat ~/todo | head -n 10 | sed 's/^.*/  &/'
-
-alias todo="cat ~/todo"
-
-export CXXFLAGS="-std=c++11 -g"
+export CXXFLAGS="-std=c++14 -g"
 export CXX=clang++
-
-# echo `pushd > /dev/null; cd ~/.dotfiles; git status -s; popd > /dev/null`
-
-export PATH=~/.cabal/bin:$PATH
