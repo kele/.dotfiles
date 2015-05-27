@@ -12,8 +12,8 @@
 set $mod Mod4
 
 # workspace naming
-set $WS_TERM "1:term"
-set $WS2 "2:web"
+set $WS_WEB "1:web"
+set $WS2 "2:term"
 set $WS3 3
 set $WS4 4
 set $WS5 5
@@ -24,6 +24,7 @@ set $WS9 9
 set $WS10 "0:music"
 
 font pango:Droid Sans Serif 8
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -31,24 +32,20 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 bindsym $mod+Tab focus right
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# alternatively, you can use the cursor keys:
+# changing focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# alternatively, you can use the cursor keys:
+# moving windows
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -78,7 +75,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # switch to workspace
-bindsym $mod+1 workspace $WS_TERM
+bindsym $mod+1 workspace $WS_WEB
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
 bindsym $mod+4 workspace $WS4
@@ -90,7 +87,7 @@ bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS_TERM
+bindsym $mod+Shift+1 move container to workspace $WS_WEB
 bindsym $mod+Shift+2 move container to workspace $WS2
 bindsym $mod+Shift+3 move container to workspace $WS3
 bindsym $mod+Shift+4 move container to workspace $WS4
@@ -103,8 +100,10 @@ bindsym $mod+Shift+0 move container to workspace $WS10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -149,20 +148,36 @@ bar {
         modifier $mod
 }
 
-bindsym $mod+Shift+comma exec amixer set Master 2%-
-bindsym $mod+Shift+period exec amixer set Master 2%+
-bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle
 
-bindsym XF86AudioRaiseVolume exec amixer set Master 2%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer set Master 2%- #decrease sound volume
-bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec killall -USR1 i3status
+bindsym $mod+Shift+comma exec amixer set Master 1%-; exec killall -USR1 i3status
+
+# decrease sound volume
+bindsym XF86AudioLowerVolume exec amixer set Master 1%-; exec killall -USR1 i3status
+bindsym $mod+Shift+period exec amixer set Master 1%+; exec killall -USR1 i3status
+
+# mute
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+
+# brightness adjusting with laptop keys
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /home/kele/.local/brightness_down.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo /home/kele/.local/brightness_up.sh
 
 
 # apps assignement to workspaces
 # assign [class="Xfce4-terminal"] $WS_TERM
 
 # hotkeys
+
+# chrome
 bindsym $mod+w exec google-chrome
+
+# lock
+bindsym $mod+l exec --no-startup-id i3lock --color=000001
 
 
 # Power control script - a useful replacement for the normal i3 exiting keybind.
@@ -170,12 +185,12 @@ bindsym $mod+w exec google-chrome
 set $mode_system System (1) lock, (2) logout, (3) suspend, (4) hibernate, (5) reboot, (6) shutdown
 mode "$mode_system" {
 # TODO
-    bindsym 1 exec --no-startup-id i3lock, mode "default"
-    bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
-    bindsym 3 exec --no-startup-id ~/.bin/suspend.sh, mode "default"
-    bindsym 4 exec --no-startup-id ~/.bin/hibernate.sh, mode "default"
-    bindsym 5 exec --no-startup-id ~/bin/i3exit reboot, mode "default"
-    bindsym 6 exec --no-startup-id ~/bin/i3exit shutdown, mode "default"
+    bindsym 1 exec --no-startup-id i3lock --color=000001, mode "default"
+    #bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
+    #bindsym 3 exec --no-startup-id ~/.bin/suspend.sh, mode "default"
+    #bindsym 4 exec --no-startup-id ~/.bin/hibernate.sh, mode "default"
+    #bindsym 5 exec --no-startup-id ~/bin/i3exit reboot, mode "default"
+    #bindsym 6 exec --no-startup-id ~/bin/i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -196,7 +211,11 @@ exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/Color.jpg
 # run redshift
 exec --no-startup-id redshift-gtk -l 51:17 -t 5500:4300
 
-exec --no-startup-id ~/.screenlayout/vga_only.sh
-
 # add network manager
 exec --no-startup-id nm-applet
+
+# Copy agent
+exec --no-startup-id /opt/copy/x86_64/CopyAgent
+
+# my default monitor setup
+exec --no-startup-id ~/.screenlayout/vga_only.sh
