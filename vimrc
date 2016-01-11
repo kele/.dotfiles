@@ -26,172 +26,146 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-
-"Plugin 'davidhalter/jedi-vim' " jedi autocompletion library (Python!)
+Plugin 'klen/python-mode' " Python mode
 Plugin 'scrooloose/nerdtree' " NERD Tree
-Plugin 'kien/ctrlp.vim' " CtrlP (fuzzy search)
-Plugin 'tpope/vim-commentary' " gc for commenting
-Plugin 'rust-lang/rust.vim' " Rust
-"Plugin 'klen/python-mode' " Python mode
-"Plugin 'vim-scripts/Mark--Karkat' " Allows marking words multiple times
-Plugin 'Valloric/YouCompleteMe' " YCM
-Plugin 'Mark'
-"Plugin 'tpope/vim-surround' 
-"Plugin 'tpope/vim-ragtag'
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'suan/vim-instant-markdown'
-Plugin 'szw/vim-ctrlspace'
-"Plugin 'ryanss/vim-hackernews'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
 " Basics
-set autoindent smartindent backspace=2 encoding=utf-8 hlsearch incsearch
-set nobackup nocompatible noswapfile number shiftwidth=4
-set smarttab tabstop=4 expandtab
-set expandtab
-syntax on
-
-" 256 colours terminal support
-set t_Co=256
-
-" vim -p limit
-set tabpagemax=100
-
-" Colors
-colorscheme molokai
-hi Comment ctermfg=200	" Highlighting comments
-
-" Gui options
-if has("gui_running")
-  hi Comment guifg=#FF00FF
-  set gfn=Inconsolata\ Medium\ 10
-  set guioptions=-t
-  set lines=48
-  set columns=100
-endif
-
-" Persistent undo
-if has('persistent_undo')
-    set undodir=~/.vim-backups
-    set undofile
-endif
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-
-"Always show current position
-set ruler
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
-
-" If a window is being splitted (for example, for jedi to display a
-" docstring), make it appear below or on the right
-set splitbelow
-set splitright
+    set autoindent smartindent backspace=2 encoding=utf-8 hlsearch incsearch
+    set nobackup nocompatible noswapfile number shiftwidth=4
+    set smarttab tabstop=4 expandtab
+    set expandtab
+    syntax on
 
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+" Appearance
+    " 256 colours terminal support
+    set t_Co=256
+    colorscheme molokai
+    hi Comment ctermfg=200	" Highlighting comments
 
-" Delete trailing white space on save, useful for Python
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
+    " Gui options
+    if has("gui_running")
+      hi Comment guifg=#FF00FF
+      set gfn=Inconsolata\ Medium\ 10
+      set guioptions=-t
+      set lines=48
+      set columns=100
+    endif
 
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+    " Highlight current line
+    set cursorline
 
-if has('mouse')
-  set mouse=a
-  set mousehide
-endif
+    " Show matching brackets when text indicator is over them
+    set showmatch
+    " How many tenths of a second to blink when matching brackets
+    set mat=2
 
-" Allow buffer switching without saving
-set hidden
 
-" Highlight curent line
-set cursorline
+" Bindings
+    " With a map leader it's possible to do extra key combinations
+    " like <leader>w saves the current file
+    let mapleader = ","
+    let g:mapleader = ","
 
-"easier window navigation
-nnoremap <silent> <Tab> :wincmd w<CR>
-nnoremap <silent> <S-Tab> :wincmd W<CR>
+    " Configure backspace so it acts as it should act
+    set backspace=eol,start,indent
+    set whichwrap+=<,>,h,l
 
-" Inserting and copying to clipboard
-map <leader>c "+y
-map <leader>v "+gp
-map <leader>a ggVG
+    " Toggle paste mode on and off
+    map <leader>pp :setlocal paste!<cr>
 
-" Wrapped lines goes down/up to next row, rather than next line in file
-noremap j gj
-noremap k gk
+    if has('mouse')
+      set mouse=a
+      set mousehide
+    endif
 
-" Visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
+    " Wrapped lines goes down/up to next row, rather than next line in file
+    noremap j gj
+    noremap k gk
 
-" Find merge conflict markers
-map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    " Visual shifting (does not exit Visual mode)
+    vnoremap < <gv
+    vnoremap > >gv
 
-autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+    " Find merge conflict markers
+    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+
+" Search
+    " Highlight search results
+    set hlsearch
+
+    " Makes search act like search in modern browsers
+    set incsearch
+
+" Misc
+    " Persistent undo
+    if has('persistent_undo')
+        set undodir=~/.vim-backups
+        set undofile
+    endif
+
+    " vim -p limit
+    set tabpagemax=100
+
+    " Don't redraw while executing macros (good performance config)
+    set lazyredraw
+
+    " If a window is being splitted (for example, for jedi to display a
+    " docstring), make it appear below or on the right
+    set splitbelow
+    set splitright
+
+
+    " No annoying sound on errors
+    set noerrorbells
+    set novisualbell
+    set t_vb=
+    set tm=500
+
+    " Allow buffer switching without saving
+    set hidden
+
+    " Clipboard shared with the rest of the OS
+    set clipboard=unnamedplus
+
 
 " Plugins
-" NERDTree
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark 
-map <leader>nf :NERDTreeFind<cr>
-let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    " NERDTree
+    map <leader>nn :NERDTreeToggle<cr>
+    map <leader>nb :NERDTreeFromBookmark 
+    map <leader>nf :NERDTreeFind<cr>
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '__pycache__']
 
-" Python mode
-let g:pymode_rope = 0 " Disable rope autocompletion (use jedi instead)
-let g:pymode_folding = 0 " Don't fold definitions, classes etc
-let g:pymode_virtualenv = 1
+    " Python mode
+    "let g:pymode_rope = 0 " Disable rope autocompletion (use jedi instead)
+    let g:pymode_folding = 0 " Don't fold definitions, classes etc
+    let g:pymode_lint_checkers = ['pep8']
+    let g:pymode_virtualenv = 1
+    let g:pymode_rope = 1
+    let g:pymode_rope_complete_on_dot = 0
+    let g:pymode_options_max_line_length = 100
 
-" Ctrlp
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-" YouCompleteMe
-let g:ycm_auto_trigger = 1
-let g:ycm_global_ycm_extra_conf = "/home/kele/.vim/ycm_global_conf.py"
+" Filetype specific
+    " Rust stuff
+    au BufRead,BufNewFile *.rs map <leader>b :!cargo build<CR>
+    au BufRead,BufNewFile *.rs map <leader>r :!cargo run<CR>
 
-" Markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+    " SML
+    au FileType sml setlocal makeprg=rlwrap\ sml\ '%'
+    au FileType sml set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
 
-" Ctrlspace
-let g:ctrlspace_set_default_mapping = 1
-let g:ctrlspace_default_mapping_key = "<C-a>"
+    " OCaml
+    au FileType ocaml set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
 
-set clipboard=unnamedplus
+    let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+    execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
-au BufRead,BufNewFile *.rs map <leader>b :!cargo build<CR>
-au BufRead,BufNewFile *.rs map <leader>r :!cargo run<CR>
+    " Haskell
+    au FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
