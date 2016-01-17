@@ -28,6 +28,8 @@ Plugin 'gmarik/Vundle.vim'
 "
 
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rking/ag.vim'
 
 
 Plugin 'klen/python-mode' " Python mode
