@@ -41,6 +41,23 @@ filetype plugin indent on    " required
     set expandtab
     syntax on
 
+" Reasonable completion
+  set completeopt=longest,menuone
+
+  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+  inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+  inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+    \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+  " open omni completion menu closing previous if open and opening new menu without changing the text
+  inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
+              \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+
+  inoremap <C-@> <C-x><C-o>
+
 
 " Appearance
     " 256 colours terminal support
@@ -71,6 +88,9 @@ filetype plugin indent on    " required
     " like <leader>w saves the current file
     let mapleader = ","
     let g:mapleader = ","
+
+    let maplocalleader = "\\"
+    let g:maplocalleader = "\\"
 
     " Configure backspace so it acts as it should act
     set backspace=eol,start,indent
@@ -163,6 +183,7 @@ filetype plugin indent on    " required
 
     " OCaml
     au FileType ocaml set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
+    au FileType ocaml noremap <localleader>d <Esc>:MerlinLocate<CR>
 
     let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
     execute "set rtp+=" . g:opamshare . "/merlin/vim"
