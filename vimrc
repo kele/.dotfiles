@@ -25,6 +25,10 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
+"
+
+Plugin 'bronson/vim-trailing-whitespace'
+
 
 Plugin 'klen/python-mode' " Python mode
 Plugin 'scrooloose/nerdtree' " NERD Tree
@@ -32,6 +36,38 @@ Plugin 'scrooloose/nerdtree' " NERD Tree
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Bindings
+    " With a map leader it's possible to do extra key combinations
+    " like <leader>w saves the current file
+    let mapleader = ","
+    let g:mapleader = ","
+
+    let maplocalleader = "\\"
+    let g:maplocalleader = "\\"
+
+    " Configure backspace so it acts as it should act
+    set backspace=eol,start,indent
+    set whichwrap+=<,>,h,l
+
+    " Toggle paste mode on and off
+    map <leader>pp :setlocal paste!<cr>
+
+    if has('mouse')
+      set mouse=a
+      set mousehide
+    endif
+
+    " Wrapped lines goes down/up to next row, rather than next line in file
+    noremap j gj
+    noremap k gk
+
+    " Visual shifting (does not exit Visual mode)
+    vnoremap < <gv
+    vnoremap > >gv
+
+    " Find merge conflict markers
+    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 
 " Basics
@@ -82,38 +118,6 @@ filetype plugin indent on    " required
     " How many tenths of a second to blink when matching brackets
     set mat=2
 
-
-" Bindings
-    " With a map leader it's possible to do extra key combinations
-    " like <leader>w saves the current file
-    let mapleader = ","
-    let g:mapleader = ","
-
-    let maplocalleader = "\\"
-    let g:maplocalleader = "\\"
-
-    " Configure backspace so it acts as it should act
-    set backspace=eol,start,indent
-    set whichwrap+=<,>,h,l
-
-    " Toggle paste mode on and off
-    map <leader>pp :setlocal paste!<cr>
-
-    if has('mouse')
-      set mouse=a
-      set mousehide
-    endif
-
-    " Wrapped lines goes down/up to next row, rather than next line in file
-    noremap j gj
-    noremap k gk
-
-    " Visual shifting (does not exit Visual mode)
-    vnoremap < <gv
-    vnoremap > >gv
-
-    " Find merge conflict markers
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
 
 " Search
