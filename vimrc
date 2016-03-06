@@ -30,6 +30,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'Valloric/YouCompleteMe'
 
 
 Plugin 'klen/python-mode' " Python mode
@@ -90,9 +92,26 @@ filetype plugin indent on    " required
   inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
     \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+  function CleverCompletion()
+    if &omnifunc != ''
+        return 2
+    elseif &completefunc != ''
+        return 1
+    else
+        return 0
+    endif
+  endfunction
+
   " open omni completion menu closing previous if open and opening new menu without changing the text
-  inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-              \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+  inoremap <expr> <C-Space>
+    \ (pumvisible() ?
+    \   (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i')
+    \ : '') .
+    \ (CleverCompletion() == 2 ?
+    \   '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+    \ : (CleverCompletion() == 1 ?
+    \       '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
+    \     : '<C-n><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'))
 
   inoremap <C-@> <C-x><C-o>
 
@@ -106,7 +125,7 @@ filetype plugin indent on    " required
     " Gui options
     if has("gui_running")
       hi Comment guifg=#FF00FF
-      set gfn=Inconsolata\ Medium\ 10
+      set gfn=Inconsolata\ Medium\ 9
       set guioptions=-t
       set lines=48
       set columns=100
@@ -164,18 +183,33 @@ filetype plugin indent on    " required
 " Plugins
     " NERDTree
     map <leader>nn :NERDTreeToggle<cr>
-    map <leader>nb :NERDTreeFromBookmark 
+    map <leader>nb :NERDTreeFromBookmark
     map <leader>nf :NERDTreeFind<cr>
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '__pycache__']
 
     " Python mode
     "let g:pymode_rope = 0 " Disable rope autocompletion (use jedi instead)
     let g:pymode_folding = 0 " Don't fold definitions, classes etc
-    let g:pymode_lint_checkers = ['pep8']
+    let g:pymode_lint_checkers = []
     let g:pymode_virtualenv = 1
     let g:pymode_rope = 1
     let g:pymode_rope_complete_on_dot = 0
     let g:pymode_options_max_line_length = 100
+
+    " CtrlP
+    let g:ctrlp_custom_ignore = {
+        \ 'dir': '\v(CMakeFiles|_build)$',
+        \ 'file': '\v\.pyc$'
+        \ }
+    let g:ctlp_max_files = 0
+
+    " YouCompleteMe
+    " Don't auto trigger without . or ->
+    let g:ycm_min_num_of_chars_for_completion = 100
+
+    noremap <localleader>d <Esc>:YcmCompleter GoTo<CR>
+    noremap <localleader>t <Esc>:YcmCompleter GetTypeo<CR>
+
 
 
 " Filetype specific
@@ -186,6 +220,9 @@ filetype plugin indent on    " required
     " SML
     au FileType sml setlocal makeprg=rlwrap\ sml\ '%'
     au FileType sml set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
+
+    " C++
+    au FileType cpp set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
 
     " OCaml
     au FileType ocaml set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
