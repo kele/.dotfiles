@@ -1,6 +1,8 @@
 sudo apt-get install \
+    apt-file        `# searching repos for files` \
     arandr          `# multi-monitor setup made easy` \
     clang           `# C compiler` \
+    clementine      `# mp3 players` \
     cmake           `# build system` \
     dolphin         `# light file manager` \
     feh             `# bakground setting` \
