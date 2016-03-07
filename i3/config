@@ -23,7 +23,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+q kill
 
-bindsym $mod+Tab focus right
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -31,6 +30,9 @@ bindsym $mod+d exec dmenu_run
 # changing workspaces
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
+
+bindsym $mod+Tab workspace next
+bindsym $mod+shift+Tab workspace prev
 
 # changing focus
 bindsym $mod+Left focus left
