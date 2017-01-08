@@ -136,7 +136,6 @@ set $mod Mod4
 	set $base0D #81a2be
 	set $base0E #b294bb
 	set $base0F #a3685a
-	set $transp #00000000
 
 	# Window colors
 	#                       border      background  text        indicator
