@@ -116,7 +116,7 @@ set $mod Mod4
 
 # Appearance
 	# Font
-	font xft:Cantarell 8
+	font xft:Inconsolata Medium 9
 
 	# Colors taken from github.com/tomfulghum/dotfiles
 	# Heavily inspired by base16-tomorrow
@@ -227,7 +227,8 @@ bindsym $mod+x move workspace to output right
 
 # Apps customization
 	for_window [class="google-chrome" class="Google-chrome"] border none
+	for_window [class="Pavucontrol"] floating enable
 
-	# apps assignement to workspaces
+	# Apps assignement to workspaces
 	assign [class="Steam"] $WS_GAMING 
 	for_window [class="Steam"] floating enable
