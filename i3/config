@@ -148,7 +148,7 @@ set $mod Mod4
 
 	bar {
 		status_command i3status
-		#mode hide
+		mode hide
 		modifier $mod
 	    
 		colors {
