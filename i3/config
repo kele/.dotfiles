@@ -1,194 +1,192 @@
+# Win key modifier
 set $mod Mod4
 
-# workspace naming
-set $WS_WEB "1"
-set $WS2 "2"
-set $WS3 3
-set $WS4 4
-set $WS5 5
-set $WS6 6
-set $WS7 7
-set $WS8 8
-set $WS9 9
-set $WS10 "0"
+# Workspaces
+	# Names
+	set $WS_WEB1 "1: "
+	set $WS_WEB2 "2: "
+	set $WS_TERM1 "3: "
+	set $WS_TERM2 "4: "
+	set $WS5 5
+	set $WS6 6
+	set $WS7 7
+	set $WS8 8
+	set $WS_GAMING "9: "
+	set $WS_IM "10: "
 
-font pango:Droid Sanf Serif 8
+	# Switch to workspace
+	bindsym $mod+1 workspace $WS_WEB1
+	bindsym $mod+2 workspace $WS_WEB2
+	bindsym $mod+3 workspace $WS_TERM1
+	bindsym $mod+4 workspace $WS_TERM2
+	bindsym $mod+5 workspace $WS5
+	bindsym $mod+6 workspace $WS6
+	bindsym $mod+7 workspace $WS7
+	bindsym $mod+8 workspace $WS8
+	bindsym $mod+9 workspace $WS_GAMING
+	bindsym $mod+0 workspace $WS_IM
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+	# Move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $WS_WEB1
+	bindsym $mod+Shift+2 move container to workspace $WS_WEB2
+	bindsym $mod+Shift+3 move container to workspace $WS_TERM1
+	bindsym $mod+Shift+4 move container to workspace $WS_TERM2
+	bindsym $mod+Shift+5 move container to workspace $WS5
+	bindsym $mod+Shift+6 move container to workspace $WS6
+	bindsym $mod+Shift+7 move container to workspace $WS7
+	bindsym $mod+Shift+8 move container to workspace $WS8
+	bindsym $mod+Shift+9 move container to workspace $WS_GAMING
+	bindsym $mod+Shift+0 move container to workspace $WS_IM
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-# kill focused window
-bindsym $mod+q kill
+	# Changing workspaces
+	bindsym $mod+Tab workspace next
+	bindsym $mod+shift+Tab workspace prev
 
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# Standard i3 stuff
+	# Use Mouse+$mod to drag floating windows to their wanted position
+	floating_modifier $mod
 
-# changing workspaces
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Right workspace next
+	# Kill focused window
+	bindsym $mod+q kill
 
-bindsym $mod+Tab workspace next
-bindsym $mod+shift+Tab workspace prev
+	# Start application launcher
+	bindsym $mod+d exec rofi -show run
 
-# changing focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+	# changing focus
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
 
-# vim keybindings
-bindsym $mod+l focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+h focus right
+	# vim keybindings
+	bindsym $mod+l focus left
+	bindsym $mod+j focus down
+	bindsym $mod+k focus up
+	bindsym $mod+h focus right
 
-# moving windows
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+	# moving windows
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+shift+h split h
+	# Hplit in horizontal orientation
+	bindsym $mod+shift+h split h
 
-# split in vertical orientation
-bindsym $mod+shift+v split v
+	# Split in vertical orientation
+	bindsym $mod+shift+v split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+	# Enter fullscreen mode for the focused container
+	bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+	# Change container layout (stacked, tabbed, toggle split)
+	bindsym $mod+s layout stacking
+	bindsym $mod+t layout tabbed
+	bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+	# Toggle tiling / floating
+	bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+	# Change focus between tiling / floating windows
+	bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-bindsym $mod+Shift+a focus child
 
-# switch to workspace
-bindsym $mod+1 workspace $WS_WEB
-bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace $WS6
-bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace $WS8
-bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS10
+	# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+	bindsym $mod+Shift+r restart
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS_WEB
-bindsym $mod+Shift+2 move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+6 move container to workspace $WS6
-bindsym $mod+Shift+7 move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace $WS8
-bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+0 move container to workspace $WS10
+	# Resize window (you can also use the mouse for that)
+	mode "resize" {
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+		bindsym Shift+Left resize shrink width 100 px or 100 ppt
+		bindsym Shift+Down resize grow height 100 px or 100 ppt
+		bindsym Shift+Up resize shrink height 100 px or 100 ppt
+		bindsym Shift+Right resize grow width 100 px or 100 ppt
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        bindsym Shift+Left resize shrink width 100 px or 100 ppt
-        bindsym Shift+Down resize grow height 100 px or 100 ppt
-        bindsym Shift+Up resize shrink height 100 px or 100 ppt
-        bindsym Shift+Right resize grow width 100 px or 100 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# Kolorki z internetu
-set $blue #005588
-set $gray1 #484848
-set $gray2 #111111
-
-client.focused            $gray1   #484880  #FFFFFF   $gray2
-client.background #FF0000
-client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
-client.unfocused          $gray2   $gray2   #FFFFFF   #000000
-
-bar {
-        status_command i3status
-        colors {
-                statusline #AAAAAA
-                background #333333
-                focused_workspace $gray2 $gray2 #FFFFFF
-                inactive_workspace $gray1 $gray1 #AAAAAA
-        }
-        mode hide
-        modifier $mod
-}
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+	bindsym $mod+r mode "resize"
 
 
 
+# Appearance
+	# Font
+	font xft:Cantarell 8
 
-# increase sound volume
-bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
-bindsym $mod+Shift+period exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	# Colors taken from github.com/tomfulghum/dotfiles
+	# Heavily inspired by base16-tomorrow
+	set $base00 #1d1f21
+	set $base01 #282a2e
+	set $base02 #373b41
+	set $base03 #969896
+	set $base04 #b4b7b4
+	set $base05 #c5c8c6
+	set $base06 #e0e0e0
+	set $base07 #ffffff
+	set $base08 #cc6666
+	set $base09 #de935f
+	set $base0A #f0c674
+	set $base0B #b5bd68
+	set $base0C #8abeb7
+	set $base0D #81a2be
+	set $base0E #b294bb
+	set $base0F #a3685a
+	set $transp #00000000
 
-# decrease sound volume
-bindsym XF86AudioLowerVolume exec amixer set Master 1%-;  exec amixer -D pulse sset Master 1%-;exec killall -USR1 i3status
-bindsym $mod+Shift+comma exec amixer set Master 1%-; exec amixer -D pulse sset Master 1%-; exec killall -USR1 i3status
-
-# mute
-bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
-bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
-
-# brightness adjusting with laptop keys
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo /home/kele/.local/brightness_down.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo /home/kele/.local/brightness_up.sh
+	# Window colors
+	#                       border      background  text        indicator
+	client.focused          $base0D     $base0D     $base00     $base01
+	client.focused_inactive $base02     $base02     $base03     $base01
+	client.unfocused        $base01     $base01     $base03     $base01
+	client.urgent           $base02     $base08     $base07     $base08
 
 
-# apps assignement to workspaces
-# assign [class="Xfce4-terminal"] $WS_TERM
+	bar {
+		status_command i3status
+		#mode hide
+		modifier $mod
+	    
+		colors {
+		    background  $base00
+		    separator   $base03
+		    statusline  $base05
+		    
+		    #                   border      background  text
+		    focused_workspace   $base0D     $base0D     $base00
+		    inactive_workspace  $base01     $base01     $base03
+		    urgent_workspace    $base08     $base08     $base07
+		}
+	}
 
-# hotkeys
 
-# chrome
-bindsym $mod+w exec google-chrome-stable
 
-# lock
-bindsym $mod+shift+l exec --no-startup-id i3lock -i ~/.i3/i3lock_bg.png
+# Hotkeys
+	# Terminal
+	bindsym $mod+Return exec i3-sensible-terminal
+	# Chrome
+	bindsym $mod+w exec google-chrome-stable
+	# Screen lock
+	bindsym $mod+shift+l exec --no-startup-id i3lock -i ~/.config/i3/i3lock_bg.png
+
+# Sound
+	# Increase sound volume
+	bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	bindsym $mod+Shift+period exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	# Decrease sound volume
+	bindsym XF86AudioLowerVolume exec amixer set Master 1%-;  exec amixer -D pulse sset Master 1%-;exec killall -USR1 i3status
+	bindsym $mod+Shift+comma exec amixer set Master 1%-; exec amixer -D pulse sset Master 1%-; exec killall -USR1 i3status
+	# Mute
+	bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+	bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
 
 
 # Power control script - a useful replacement for the normal i3 exiting keybind.
+# TODO:
 # https://wiki.archlinux.org/index.php/i3#Shutdown.2C_reboot.2C_lock_screen
 set $mode_system System (1) lock, (2) logout, (3) suspend, (4) hibernate, (5) reboot, (6) shutdown
 mode "$mode_system" {
@@ -207,47 +205,29 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 
-# Display stuff
+# Display stuff.
 bindsym $mod+p exec xrandr --auto
 
-set $mode_display Display (1) VGA, (2) VGA + NOTEBOOK
-mode "$mode_display" {
-    bindsym 1 exec --no-startup-id ~/.screenlayout/vga_only.sh, mode "default"
-    bindsym 2 exec --no-startup-id ~/.screenlayout/laptop_right.sh, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+p mode "$mode_display"
-
-bindsym $mod+semicolon exec clementine -t
-
-
-# move workspace to output to the right (toggles if two workspaces)
+# Move workspace to output to the right (toggles if two workspaces).
 bindsym $mod+x move workspace to output right
 
+# Lines below are for display configuration, which is not really needed on a PC.
+#set $mode_display Display (1) VGA, (2) VGA + NOTEBOOK
+#mode "$mode_display" {
+#    bindsym 1 exec --no-startup-id ~/.screenlayout/vga_only.sh, mode "default"
+#    bindsym 2 exec --no-startup-id ~/.screenlayout/laptop_right.sh, mode "default"
+#
+#    # back to normal: Enter or Escape
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+Shift+p mode "$mode_display"
 
-# Autostart apps
-# set background
-exec_always --no-startup-id feh --bg-fill ~/data/img/wallpapers/Banco_2560x1920.jpg
 
-# run redshift
-exec --no-startup-id redshift-gtk -l 51:17 -t 5500:4300
 
-# add network manager
-exec --no-startup-id nm-applet
+# Apps customization
+	for_window [class="google-chrome" class="Google-chrome"] border none
 
-# Copy agent
-exec --no-startup-id /opt/copy/x86_64/CopyAgent
-
-# my default monitor setup
-exec --no-startup-id ~/.screenlayout/vga_only.sh
-
-for_window [class="google-chrome" title="Google Chrome"] border none
-for_window [class="Chromium-browser"] border none
-for_window [class="Firefox"] border none
-
-# this is used for bluetooth headset, not yet ideal # TODO
-exec --no-startup-id blueman-applet
-exec --no-startup-id pactl load-module module-bluetooth-discover
+	# apps assignement to workspaces
+	assign [class="Steam"] $WS_GAMING 
+	for_window [class="Steam"] floating enable
