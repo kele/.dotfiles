@@ -1,7 +1,3 @@
-# Autoload tmux
-export TERM='screen-256color'
-if [ "$TMUX" = "" ]; then tmux new-session && exit; fi
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -52,12 +48,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 alias rm=trash
-alias install="sudo apt-get install"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get autoremove -y --purge && sudo apt-get update; sudo apt-get upgrade -y"
-
-# Without this, vim tries to connect with X server which causes a 1s lag in tmux
-#alias vim="vim -X"
 
 alias usermount="sudo mount -o rw,nosuid,nodev,uid=1000,gid=1000,shortname=mixed,dmask=0077,showexec,flush"
 
@@ -66,7 +56,4 @@ echo
 print -P "\e[1;30m Welcome to: \e[1;31m%m"
 print -P "\e[1;30m Running: \e[1;31m`uname -srm`\e[1;30m on \e[1;31m%l"
 print -P "\e[1;30m It is:\e[1;31m %D{%r}\e[1;30m on \e[1;31m%D{%f-%m-%G}"
-print -P "\e[1;30m Battery state:\e[1;31m `acpi | sed -e 's/%/%%/'`"
 
-export CXXFLAGS="-std=c++14 -g"
-export CXX=clang++
