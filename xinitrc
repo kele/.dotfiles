@@ -36,6 +36,10 @@ setxkbmap -layout pl
 # Making CapsLock work as Win key.
 setxkbmap -option caps:super
 
+# Disabling screensaver
+xset -dpms
+xset s off
+
 # Make it easier on the eyes at night.
 redshift-gtk -l 51:17 -t 5500:4300 &
 
