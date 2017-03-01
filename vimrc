@@ -119,7 +119,7 @@ filetype plugin indent on    " required
 " Appearance
     " 256 colours terminal support
     set t_Co=256
-    colorscheme molokai
+    colorscheme elflord
     hi Comment ctermfg=200	" Highlighting comments
 
     " Gui options
