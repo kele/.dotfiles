@@ -50,10 +50,3 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 alias rm=trash
 
 alias usermount="sudo mount -o rw,nosuid,nodev,uid=1000,gid=1000,shortname=mixed,dmask=0077,showexec,flush"
-
-# Welcome message for login shells
-echo
-print -P "\e[1;30m Welcome to: \e[1;31m%m"
-print -P "\e[1;30m Running: \e[1;31m`uname -srm`\e[1;30m on \e[1;31m%l"
-print -P "\e[1;30m It is:\e[1;31m %D{%r}\e[1;30m on \e[1;31m%D{%f-%m-%G}"
-
