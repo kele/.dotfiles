@@ -27,15 +27,20 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 "
 
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'Valloric/YouCompleteMe'
-
 
 Plugin 'klen/python-mode' " Python mode
 Plugin 'scrooloose/nerdtree' " NERD Tree
+
+Plugin 'fatih/vim-go' " Go support
+
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -119,13 +124,13 @@ filetype plugin indent on    " required
 " Appearance
     " 256 colours terminal support
     set t_Co=256
-    colorscheme elflord
+    colorscheme monokain
     hi Comment ctermfg=200	" Highlighting comments
 
     " Gui options
     if has("gui_running")
       hi Comment guifg=#FF00FF
-      set gfn=Inconsolata\ Medium\ 9
+      set gfn=Inconsolata\ Medium\ 10
       set guioptions=-t
       set lines=48
       set columns=100
@@ -198,18 +203,11 @@ filetype plugin indent on    " required
 
     " CtrlP
     let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v(CMakeFiles|_build)$',
+        \ 'dir': '\v(CMakeFiles|_build|bin)$',
         \ 'file': '\v\.pyc$'
         \ }
     let g:ctlp_max_files = 0
-
-    " YouCompleteMe
-    " Don't auto trigger without . or ->
-    let g:ycm_min_num_of_chars_for_completion = 100
-
-    noremap <localleader>d <Esc>:YcmCompleter GoTo<CR>
-    noremap <localleader>t <Esc>:YcmCompleter GetTypeo<CR>
-
+    let g:ctrlp_working_path_mode = 'ra'
 
 
 " Filetype specific
@@ -233,3 +231,82 @@ filetype plugin indent on    " required
 
     " Haskell
     au FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+
+" neocomplete
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+let g:neocomplete#auto_completion_start_length = 10
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = { 'default' : ''}
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+autocmd FileType go map <F8> :GoBuild<cr>
+
+let g:colorscheme_switcher_define_mappings = 0
+
+noremap <F11> :PrevColorScheme<cr>
+noremap <F12> :NextColorScheme<cr>

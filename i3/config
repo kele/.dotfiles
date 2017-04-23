@@ -7,9 +7,6 @@ set $mod Mod4
 	set $WS_WEB2 "2: "
 	set $WS_TERM1 "3: "
 	set $WS_TERM2 "4: "
-	set $WS5 5
-	set $WS6 6
-	set $WS7 7
 	set $WS8 8
 	set $WS_GAMING "9: "
 	set $WS_IM "10: "
@@ -31,9 +28,6 @@ set $mod Mod4
 	bindsym $mod+Shift+2 move container to workspace $WS_WEB2
 	bindsym $mod+Shift+3 move container to workspace $WS_TERM1
 	bindsym $mod+Shift+4 move container to workspace $WS_TERM2
-	bindsym $mod+Shift+5 move container to workspace $WS5
-	bindsym $mod+Shift+6 move container to workspace $WS6
-	bindsym $mod+Shift+7 move container to workspace $WS7
 	bindsym $mod+Shift+8 move container to workspace $WS8
 	bindsym $mod+Shift+9 move container to workspace $WS_GAMING
 	bindsym $mod+Shift+0 move container to workspace $WS_IM
@@ -42,13 +36,11 @@ set $mod Mod4
 	bindsym $mod+Tab workspace next
 	bindsym $mod+shift+Tab workspace prev
 
-
-# Standard i3 stuff
 	# Use Mouse+$mod to drag floating windows to their wanted position
 	floating_modifier $mod
 
 	# Kill focused window
-	bindsym $mod+q kill
+	bindsym $mod+shift+q kill
 
 	# Start application launcher
 	bindsym $mod+d exec rofi -show run
@@ -59,23 +51,31 @@ set $mod Mod4
 	bindsym $mod+Up focus up
 	bindsym $mod+Right focus right
 
-	# vim keybindings
-	bindsym $mod+l focus left
-	bindsym $mod+j focus down
-	bindsym $mod+k focus up
-	bindsym $mod+h focus right
-
 	# moving windows
 	bindsym $mod+Shift+Left move left
 	bindsym $mod+Shift+Down move down
 	bindsym $mod+Shift+Up move up
 	bindsym $mod+Shift+Right move right
 
-	# Hplit in horizontal orientation
-	bindsym $mod+shift+h split h
+	# vim keybindings
+	bindsym $mod+l focus left
+	bindsym $mod+j focus down
+	bindsym $mod+k focus up
+	bindsym $mod+h focus right
+
+	bindsym $mod+shift+l move left
+	bindsym $mod+shift+j move down
+	bindsym $mod+shift+k move up
+	bindsym $mod+shift+h move right
+
+    # Move workspace to output to the right (toggles if two workspaces).
+    bindsym $mod+x move workspace to output right
 
 	# Split in vertical orientation
-	bindsym $mod+shift+v split v
+	bindsym $mod+v split v
+
+	# Split in horizontal orientation
+	bindsym $mod+shift+v split h
 
 	# Enter fullscreen mode for the focused container
 	bindsym $mod+f fullscreen
@@ -91,6 +91,9 @@ set $mod Mod4
 	# Change focus between tiling / floating windows
 	bindsym $mod+space focus mode_toggle
 
+    # Scratchpad
+    bindsym $mod+shift+i move scratchpad
+    bindsym $mod+i scratchpad show
 
 	# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 	bindsym $mod+Shift+r restart
@@ -113,6 +116,43 @@ set $mod Mod4
 	bindsym $mod+r mode "resize"
 
 
+
+set $TERMINAL xfce4-terminal
+set $BROWSER google-chrome-stable
+set $LOCK i3lock -i ~/.config/i3/i3lock_bg.png
+
+# Hotkeys
+	# Terminal
+	bindsym $mod+Return exec $TERMINAL
+
+	# Chrome
+	bindsym $mod+w exec $BROWSER
+
+	# Screen lock
+	bindsym $mod+shift+o exec --no-startup-id $LOCK
+
+    # Reconfigure display automatically
+    bindsym $mod+p exec xrandr --auto
+
+    # Sound
+	# Increase sound volume
+	bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	bindsym $mod+Shift+period exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	# Decrease sound volume
+	bindsym XF86AudioLowerVolume exec amixer set Master 1%-;  exec amixer -D pulse sset Master 1%-;exec killall -USR1 i3status
+	bindsym $mod+Shift+comma exec amixer set Master 1%-; exec amixer -D pulse sset Master 1%-; exec killall -USR1 i3status
+	# Mute
+	bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+	bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+
+
+# Apps customization
+	for_window [class="google-chrome" class="Google-chrome"] border none
+	for_window [class="Pavucontrol"] floating enable
+
+	# Apps assignement to workspaces
+	assign [class="Steam"] $WS_GAMING
+	for_window [class="Steam"] floating enable
 
 # Appearance
 	# Font
@@ -149,12 +189,12 @@ set $mod Mod4
 		status_command i3status
 		mode hide
 		modifier $mod
-	    
+
 		colors {
 		    background  $base00
 		    separator   $base03
 		    statusline  $base05
-		    
+
 		    #                   border      background  text
 		    focused_workspace   $base0D     $base0D     $base00
 		    inactive_workspace  $base01     $base01     $base03
@@ -162,74 +202,5 @@ set $mod Mod4
 		}
 	}
 
-
-
-# Hotkeys
-	# Terminal
-	bindsym $mod+Return exec xfce4-terminal
-	# Chrome
-	bindsym $mod+w exec google-chrome-stable
-	# Screen lock
-	bindsym $mod+shift+l exec --no-startup-id i3lock -i ~/.config/i3/i3lock_bg.png
-
-# Sound
-	# Increase sound volume
-	bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
-	bindsym $mod+Shift+period exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
-	# Decrease sound volume
-	bindsym XF86AudioLowerVolume exec amixer set Master 1%-;  exec amixer -D pulse sset Master 1%-;exec killall -USR1 i3status
-	bindsym $mod+Shift+comma exec amixer set Master 1%-; exec amixer -D pulse sset Master 1%-; exec killall -USR1 i3status
-	# Mute
-	bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
-	bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
-
-
-# Power control script - a useful replacement for the normal i3 exiting keybind.
-# TODO:
-# https://wiki.archlinux.org/index.php/i3#Shutdown.2C_reboot.2C_lock_screen
-set $mode_system System (1) lock, (2) logout, (3) suspend, (4) hibernate, (5) reboot, (6) shutdown
-mode "$mode_system" {
-# TODO
-    bindsym 1 exec --no-startup-id i3lock --color=000001, mode "default"
-    #bindsym 2 exec --no-startup-id i3-msg exit, mode "default"
-    #bindsym 3 exec --no-startup-id ~/.bin/suspend.sh, mode "default"
-    #bindsym 4 exec --no-startup-id ~/.bin/hibernate.sh, mode "default"
-    #bindsym 5 exec --no-startup-id ~/bin/i3exit reboot, mode "default"
-    #bindsym 6 exec --no-startup-id ~/bin/i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Pause mode "$mode_system"
-
-
-# Display stuff.
-bindsym $mod+p exec xrandr --auto
-
-# Move workspace to output to the right (toggles if two workspaces).
-bindsym $mod+x move workspace to output right
-
-# Lines below are for display configuration, which is not really needed on a PC.
-#set $mode_display Display (1) VGA, (2) VGA + NOTEBOOK
-#mode "$mode_display" {
-#    bindsym 1 exec --no-startup-id ~/.screenlayout/vga_only.sh, mode "default"
-#    bindsym 2 exec --no-startup-id ~/.screenlayout/laptop_right.sh, mode "default"
-#
-#    # back to normal: Enter or Escape
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
-#bindsym $mod+Shift+p mode "$mode_display"
-
-
-
-# Apps customization
-	for_window [class="google-chrome" class="Google-chrome"] border none
-	for_window [class="Pavucontrol"] floating enable
-
-	# Apps assignement to workspaces
-	assign [class="Steam"] $WS_GAMING 
-	for_window [class="Steam"] floating enable
-
-exec-always --no-startup-id feh --bg-scale ~/.local/bg
+# Autostart
+exec_always --no-startup-id feh --bg-scale ~/.local/bg.jpg
