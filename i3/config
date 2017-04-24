@@ -58,15 +58,15 @@ set $mod Mod4
 	bindsym $mod+Shift+Right move right
 
 	# vim keybindings
-	bindsym $mod+l focus left
+	bindsym $mod+h focus left
 	bindsym $mod+j focus down
 	bindsym $mod+k focus up
-	bindsym $mod+h focus right
+	bindsym $mod+l focus right
 
-	bindsym $mod+shift+l move left
+	bindsym $mod+shift+h move left
 	bindsym $mod+shift+j move down
 	bindsym $mod+shift+k move up
-	bindsym $mod+shift+h move right
+	bindsym $mod+shift+l move right
 
     # Move workspace to output to the right (toggles if two workspaces).
     bindsym $mod+x move workspace to output right
