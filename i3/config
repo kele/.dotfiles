@@ -9,7 +9,7 @@ set $mod Mod4
 	set $WS_TERM2 "4: "
 	set $WS8 8
 	set $WS_GAMING "9: "
-	set $WS_IM "10: "
+	set $WS_IM "10: "
 
 	# Switch to workspace
 	bindsym $mod+1 workspace $WS_WEB1
@@ -33,8 +33,8 @@ set $mod Mod4
 	bindsym $mod+Shift+0 move container to workspace $WS_IM
 
 	# Changing workspaces
-	bindsym $mod+Tab workspace next
-	bindsym $mod+shift+Tab workspace prev
+	bindsym $mod+Tab exec ~/.config/i3/next_workspace_ignore_10.py
+	bindsym $mod+Shift+Tab exec ~/.config/i3/prev_workspace_ignore_10.py
 
 	# Use Mouse+$mod to drag floating windows to their wanted position
 	floating_modifier $mod
@@ -202,5 +202,11 @@ set $LOCK i3lock -i ~/.config/i3/i3lock_bg.png
 		}
 	}
 
+
 # Autostart
 exec_always --no-startup-id feh --bg-scale ~/.local/bg.jpg
+
+# Gaps
+gaps inner 10
+gaps outer 10
+for_window [class="^.*"] border pixel 3
