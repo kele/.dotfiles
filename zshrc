@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man)
+plugins=(colored-man rust cargo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,3 +50,7 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 alias rm=trash
 
 alias usermount="sudo mount -o rw,nosuid,nodev,uid=1000,gid=1000,shortname=mixed,dmask=0077,showexec,flush"
+
+source /home/kele/.zprofile
+
+export RUST_SRC_PATH="/home/kele/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
