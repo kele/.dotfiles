@@ -1,7 +1,5 @@
-if [ -n "$VIM_NAVIGATION_INCLUDED" ]
+if [ -z "$VIM_NAVIGATION_INCLUDED" ]
 then
-    exit 0
-else
 
 VIM_NAVIGATION_INCLUDED="yes"
 

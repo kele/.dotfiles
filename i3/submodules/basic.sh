@@ -1,7 +1,5 @@
-if [ -n "$BASIC_INCLUDED" ]
+if [ -z "$BASIC_INCLUDED" ]
 then
-    exit 0
-else
 
 BASIC_INCLUDED="yes"
 

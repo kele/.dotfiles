@@ -1,7 +1,5 @@
-if [ -n "$RESIZE_MODE_INCLUDED" ]
+if [ -z "$RESIZE_MODE_INCLUDED" ]
 then
-    exit 0
-else
 
 RESIZE_MODE_INCLUDED="yes"
 

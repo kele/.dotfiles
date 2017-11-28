@@ -1,7 +1,5 @@
-if [ -n "$SOUND_COMMANDS_INCLUDED" ]
+if [ -z "$SOUND_COMMANDS_INCLUDED" ]
 then
-    exit 0
-else
 
 SOUND_COMMANDS_INCLUDED="yes"
 

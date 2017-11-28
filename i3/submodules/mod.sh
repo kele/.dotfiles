@@ -1,7 +1,5 @@
-if [ -n "$MOD_INCLUDED" ]
+if [ -z "$MOD_INCLUDED" ]
 then
-    exit 0
-else
 
 MOD_INCLUDED="yes"
 

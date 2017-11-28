@@ -1,7 +1,5 @@
-if [ -n "$BASE16_PALETTE_INCLUDED" ]
+if [ -z "$BASE16_PALETTE_INCLUDED" ]
 then
-    exit 0
-else
 
 BASE16_PALETTE_INCLUDED="yes"
 

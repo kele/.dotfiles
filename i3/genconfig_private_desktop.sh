@@ -7,7 +7,6 @@ source ./base16_i3status.sh
 source ./base16_look.sh
 source ./base16_palette.sh
 source ./basic.sh
-source ./chrome_no_borders.sh
 source ./floating_apps.sh
 source ./font.sh
 source ./i3_refresh.sh

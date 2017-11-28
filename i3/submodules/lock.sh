@@ -1,7 +1,5 @@
-if [ -n "$LOCK_INCLUDED" ]
+if [ -z "$LOCK_INCLUDED" ]
 then
-    exit 0
-else
 
 LOCK_INCLUDED="yes"
 

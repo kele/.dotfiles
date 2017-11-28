@@ -1,7 +1,5 @@
-if [ -n "$BASE16_LOOK_INCLUDED" ]
+if [ -z "$BASE16_LOOK_INCLUDED" ]
 then
-    exit 0
-else
 
 BASE16_LOOK_INCLUDED="yes"
 

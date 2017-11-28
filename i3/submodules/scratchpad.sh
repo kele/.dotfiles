@@ -1,7 +1,5 @@
-if [ -n "$SCRATCHPAD_INCLUDED" ]
+if [ -z "$SCRATCHPAD_INCLUDED" ]
 then
-    exit 0
-else
 
 SCRATCHPAD_INCLUDED="yes"
 

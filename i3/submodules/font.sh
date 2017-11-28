@@ -1,7 +1,5 @@
-if [ -n "$FONT_INCLUDED" ]
+if [ -z "$FONT_INCLUDED" ]
 then
-    exit 0
-else
 
 FONT_INCLUDED="yes"
 

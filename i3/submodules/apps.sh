@@ -1,7 +1,5 @@
-if [ -n "$APPS_INCLUDED" ]
+if [ -z "$APPS_INCLUDED" ]
 then
-    exit 0
-else
 
 APPS_INCLUDED="yes"
 

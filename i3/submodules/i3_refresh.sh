@@ -1,7 +1,5 @@
-if [ -n "$I3REFRESH_INCLUDED" ]
+if [ -z "$I3REFRESH_INCLUDED" ]
 then
-    exit 0
-else
 
 I3REFRESH_INCLUDED="yes"
 

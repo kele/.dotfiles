@@ -1,7 +1,5 @@
-if [ -n "$LAYOUT_MODE_INCLUDED" ]
+if [ -z "$LAYOUT_MODE_INCLUDED" ]
 then
-    exit 0
-else
 
 LAYOUT_MODE_INCLUDED="yes"
 

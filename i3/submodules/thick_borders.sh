@@ -1,7 +1,5 @@
-if [ -n "$THICK_BORDERS_INCLUDED" ]
+if [ -z "$THICK_BORDERS_INCLUDED" ]
 then
-    exit 0
-else
 
 THICK_BORDERS_INCLUDED="yes"
 

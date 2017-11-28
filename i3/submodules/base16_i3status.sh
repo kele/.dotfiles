@@ -1,7 +1,5 @@
-if [ -n "$BASE16_I3STATUS_INCLUDED" ]
+if [ -z "$BASE16_I3STATUS_INCLUDED" ]
 then
-    exit 0
-else
 
 BASE16_I3STATUS_INCLUDED="yes"
 

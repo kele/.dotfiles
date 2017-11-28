@@ -1,7 +1,5 @@
-if [ -n "$FLOATING_APPS_INCLUDED" ]
+if [ -z "$FLOATING_APPS_INCLUDED" ]
 then
-    exit 0
-else
 
 FLOATING_APPS_INCLUDED="yes"
 

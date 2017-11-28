@@ -1,7 +1,5 @@
-if [ -n "$CHROME_NO_BORDERS_INCLUDED" ]
+if [ -z "$CHROME_NO_BORDERS_INCLUDED" ]
 then
-    exit 0
-else
 
 CHROME_NO_BORDERS_INCLUDED="yes"
 

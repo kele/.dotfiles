@@ -1,7 +1,5 @@
-if [ -n "$WORKSPACES_INCLUDED" ]
+if [ -z "$WORKSPACES_INCLUDED" ]
 then
-    exit 0
-else
 
 WORKSPACES_INCLUDED="yes"
 
