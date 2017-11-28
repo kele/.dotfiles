@@ -24,9 +24,9 @@ Plugin 'gmarik/Vundle.vim'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 "
+"
 
-" Autocomplete
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Rip-Rip/clang_complete'
 
 " Fuzzy search
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -60,9 +60,6 @@ Plugin 'racer-rust/vim-racer'
 
 " Seamless Vim/Tmux navigation
 Plugin 'christoomey/vim-tmux-navigator'
-
-" Snyastic
-Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -232,67 +229,6 @@ filetype plugin indent on    " required
     let g:ctlp_max_files = 0
     let g:ctrlp_working_path_mode = 'ra'
 
-
-" neocomplete
-    " Use neocomplete.
-    let g:neocomplete#enable_at_startup = 1
-    " Use smartcase.
-    let g:neocomplete#enable_smart_case = 1
-    " Set minimum syntax keyword length.
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-    let g:neocomplete#auto_completion_start_length = 10
-
-    " Define dictionary.
-    let g:neocomplete#sources#dictionary#dictionaries = { 'default' : ''}
-
-    " Define keyword.
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-    " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    "function! s:my_cr_function()
-    "  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    "  " For no inserting <CR> key.
-    "  "return pumvisible() ? "\<C-y>" : "\<CR>"
-    "endfunction
-    "" <TAB>: completion.
-    ""inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    "" <C-h>, <BS>: close popup and delete backword char.
-    ""inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-    "inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-    "" Close popup by <Space>.
-    "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-    " AutoComplPop like behavior.
-    "let g:neocomplete#enable_auto_select = 1
-
-    " Shell like behavior(not recommended).
-    "set completeopt+=longest
-    "let g:neocomplete#enable_auto_select = 1
-    "let g:neocomplete#disable_auto_complete = 1
-    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-    " Enable omni completion.
-    "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    "
-
 " Filetype specific
     " Rust
     au BufRead,BufNewFile *.rs map <leader>f :RustFmt<CR>
@@ -301,13 +237,12 @@ filetype plugin indent on    " required
     au FileType rust nmap gx <Plug>(rust-def-vertical)
     au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
-
     " SML
     au FileType sml setlocal makeprg=rlwrap\ sml\ '%'
     au FileType sml set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
 
     " C++
-    au FileType cpp set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
+    au FileType cpp set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
 
     " OCaml
     au FileType ocaml set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
@@ -338,12 +273,5 @@ endif
 
     noremap <F11> :PrevColorScheme<cr>
     noremap <F12> :NextColorScheme<cr>
-
-
-" Syntastic
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
 
 set laststatus=2

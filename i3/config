@@ -136,14 +136,14 @@ set $LOCK i3lock -i ~/.config/i3/i3lock_bg.png
 
     # Sound
 	# Increase sound volume
-	bindsym XF86AudioRaiseVolume exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
-	bindsym $mod+Shift+period exec amixer set Master 1%+; exec amixer -D pulse sset Master 1%+; exec killall -USR1 i3status
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +1%; exec killall -USR1 i3status
+	bindsym $mod+Shift+period exec pactl set-sink-volume 0 +1%; exec killall -USR1 i3status
 	# Decrease sound volume
-	bindsym XF86AudioLowerVolume exec amixer set Master 1%-;  exec amixer -D pulse sset Master 1%-;exec killall -USR1 i3status
-	bindsym $mod+Shift+comma exec amixer set Master 1%-; exec amixer -D pulse sset Master 1%-; exec killall -USR1 i3status
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -1%; exec killall -USR1 i3status
+	bindsym $mod+Shift+comma exec pactl set-sink-volume 0 -1%; exec killall -USR1 i3status
 	# Mute
-	bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
-	bindsym $mod+Shift+m exec amixer -D pulse set Master 1+ toggle; exec killall -USR1 i3status
+	bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle; exec killall -USR1 i3status
+	bindsym $mod+Shift+m exec pactl set-sink-mute 0 toggle; exec killall -USR1 i3status
 
 
 # Apps customization
@@ -207,6 +207,6 @@ set $LOCK i3lock -i ~/.config/i3/i3lock_bg.png
 exec_always --no-startup-id feh --bg-scale ~/.local/bg.jpg
 
 # Gaps
-gaps inner 10
-gaps outer 10
+gaps inner 20
+gaps outer 20
 for_window [class="^.*"] border pixel 3
