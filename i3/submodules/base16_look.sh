@@ -8,6 +8,8 @@ BASE16_LOOK_INCLUDED="yes"
 source ./base16_palette.sh
 
 cat << EndOfConfig
+# INCLUDE: submodules/base16_look.sh
+
 # Window colors
 #                       border      background  text        indicator
 client.focused          \$base0D     \$base0D     \$base00     \$base01

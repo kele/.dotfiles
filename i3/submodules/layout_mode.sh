@@ -6,6 +6,8 @@ else
 LAYOUT_MODE_INCLUDED="yes"
 
 cat << EndOfConfig
+# INCLUDE: submodules/layout_mode.sh
+
 # Change container layout (stacked, tabbed, toggle split)
 set \$LAYOUT_MODE "layout: s - stacked, t - tabbed, e - split"
 mode \$LAYOUT_MODE {

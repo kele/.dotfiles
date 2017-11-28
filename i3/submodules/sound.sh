@@ -10,6 +10,8 @@ source ./i3_refresh.sh
 source ./sound_commands.sh
 
 cat << EndOfConfig
+# INCLUDE: submodules/sound.sh
+
 bindsym XF86AudioRaiseVolume exec \$RAISE_VOLUME; exec \$I3STATUS_REFRESH
 bindsym \$mod+Shift+period exec \$RAISE_VOLUME; exec \$I3STATUS_REFRESH
 

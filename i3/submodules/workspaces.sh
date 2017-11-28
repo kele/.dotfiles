@@ -6,6 +6,8 @@ else
 WORKSPACES_INCLUDED="yes"
 
 cat << EndOfConfig
+# INCLUDE: submodules/workspaces.sh
+
 set $WS1 "1: "
 set $WS2 "2: "
 set $WS3 "3: "

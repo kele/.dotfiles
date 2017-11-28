@@ -8,6 +8,8 @@ BASE16_I3STATUS_INCLUDED="yes"
 source ./base16_palette.sh
 
 cat << EndOfConfig
+# INCLUDE: submodules/base16_i3status.sh
+
 bar {
     status_command i3status
     mode hide

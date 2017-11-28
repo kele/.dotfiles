@@ -8,6 +8,8 @@ VIM_NAVIGATION_INCLUDED="yes"
 source ./mod.sh
 
 cat << EndOfConfig
+# INCLUDE: submodules/vim_navigation.sh
+
 # Vim keybindings for changing focus
 bindsym \$mod+h focus left
 bindsym \$mod+j focus down

@@ -13,6 +13,7 @@ source ./workspaces.sh
 source ./layout_mode.sh
 
 cat << EndOfConfig
+# INCLUDE: submodules/basic.sh
 
 # Workspaces
 	# Switch to workspace

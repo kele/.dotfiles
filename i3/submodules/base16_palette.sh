@@ -1,9 +1,13 @@
 if [ -n "$BASE16_PALETTE_INCLUDED" ]
 then
-    BASE16_PALETTE_INCLUDED="yes"
+    exit 0
 else
 
+BASE16_PALETTE_INCLUDED="yes"
+
 cat << EndOfConfig
+# INCLUDE: submodules/base16_palette.sh.sh
+
 # Colors taken from github.com/tomfulghum/dotfiles
 # Heavily inspired by base16-tomorrow
 set \$base00 #1d1f21

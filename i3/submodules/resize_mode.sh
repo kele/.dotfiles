@@ -6,6 +6,8 @@ else
 RESIZE_MODE_INCLUDED="yes"
 
 cat << EndOfConfig
+# INCLUDE: submodules/resize_mode.sh
+
 # Resize window (you can also use the mouse for that)
 set \$RESIZE_MODE "resize"
 mode \$RESIZE_MODE {
