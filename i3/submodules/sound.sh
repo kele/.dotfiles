@@ -3,9 +3,9 @@ then
 
 SOUND_INCLUDED="yes"
 
-source ./mod.sh
-source ./i3_refresh.sh
-source ./sound_commands.sh
+source ${WORKING_PATH}/mod.sh
+source ${WORKING_PATH}/i3_refresh.sh
+source ${WORKING_PATH}/sound_commands.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/sound.sh

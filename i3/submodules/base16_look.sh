@@ -3,8 +3,8 @@ then
 
 BASE16_LOOK_INCLUDED="yes"
 
-source ./font.sh
-source ./base16_palette.sh
+source ${WORKING_PATH}/font.sh
+source ${WORKING_PATH}/base16_palette.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/base16_look.sh

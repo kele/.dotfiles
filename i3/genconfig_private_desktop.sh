@@ -1,5 +1,11 @@
 set -e
 
+WORKING_PATH="$1"
+
+if [ -z "${WORKING_PATH}" ]; then
+    WORKING_PATH=`pwd`
+fi
+
 pushd submodules > /dev/null
 
 source ./apps.sh

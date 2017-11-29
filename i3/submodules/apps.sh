@@ -4,7 +4,7 @@ then
 APPS_INCLUDED="yes"
 
 set -e
-source ./lock.sh
+source ${WORKING_PATH}/lock.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/apps.sh

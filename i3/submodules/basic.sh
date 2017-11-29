@@ -4,12 +4,12 @@ then
 BASIC_INCLUDED="yes"
 
 set -e
-source ./mod.sh
-source ./apps.sh
-source ./resize_mode.sh
-source ./workspaces.sh
-source ./layout_mode.sh
-source ./reload_config.sh
+source ${WORKING_PATH}/mod.sh
+source ${WORKING_PATH}/apps.sh
+source ${WORKING_PATH}/resize_mode.sh
+source ${WORKING_PATH}/workspaces.sh
+source ${WORKING_PATH}/layout_mode.sh
+source ${WORKING_PATH}/reload_config.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/basic.sh

@@ -3,9 +3,9 @@ then
 
 BASE16_I3STATUS_INCLUDED="yes"
 
-source ./base16_palette.sh
-source ./font.sh
-source ./mod.sh
+source ${WORKING_PATH}/base16_palette.sh
+source ${WORKING_PATH}/font.sh
+source ${WORKING_PATH}/mod.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/base16_i3status.sh
