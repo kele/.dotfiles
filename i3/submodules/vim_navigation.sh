@@ -3,7 +3,7 @@ then
 
 VIM_NAVIGATION_INCLUDED="yes"
 
-source ${WORKING_PATH}/mod.sh
+source ${WORKING_PATH}/submodules/mod.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/vim_navigation.sh

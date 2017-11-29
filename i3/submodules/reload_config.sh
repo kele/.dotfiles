@@ -6,7 +6,7 @@ RELOAD_CONFIG_INCLUDED="yes"
 cat << EndOfConfig
 # INCLUDE: submodules/reload_config.sh
 
-set \$RELOAD_CONFIG exec pushd ~/.config/i3 && ./genconfig_private_desktop.sh > config && popd; restart
+set \$RELOAD_CONFIG exec ./genconfig_private_desktop.sh $WORKING_PATH > $WORKING_PATH/config; restart
 
 EndOfConfig
 

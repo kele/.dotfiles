@@ -3,7 +3,7 @@ then
 
 SCRATCHPAD_INCLUDED="yes"
 
-source ${WORKING_PATH}/mod.sh
+source ${WORKING_PATH}/submodules/mod.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/scratchpad.sh
