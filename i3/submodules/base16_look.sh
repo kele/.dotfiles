@@ -3,6 +3,7 @@ then
 
 BASE16_LOOK_INCLUDED="yes"
 
+source ./font.sh
 source ./base16_palette.sh
 
 cat << EndOfConfig

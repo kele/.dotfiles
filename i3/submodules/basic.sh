@@ -9,6 +9,7 @@ source ./apps.sh
 source ./resize_mode.sh
 source ./workspaces.sh
 source ./layout_mode.sh
+source ./reload_config.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/basic.sh
@@ -79,7 +80,7 @@ bindsym \$mod+Return exec \$TERMINAL
 bindsym \$mod+w exec \$BROWSER
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym \$mod+Shift+r restart
+bindsym \$mod+Shift+r \$RELOAD_CONFIG
 
 EndOfConfig
 

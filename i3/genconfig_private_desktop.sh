@@ -1,6 +1,6 @@
 set -e
 
-pushd submodules
+pushd submodules > /dev/null
 
 source ./apps.sh
 source ./base16_i3status.sh
@@ -21,4 +21,4 @@ source ./thick_borders.sh
 source ./vim_navigation.sh
 source ./workspaces.sh
 
-popd
+popd > /dev/null
