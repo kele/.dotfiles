@@ -80,7 +80,7 @@ bindsym \$mod+Return exec \$TERMINAL
 bindsym \$mod+w exec \$BROWSER
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym \$mod+Shift+r \$RELOAD_CONFIG
+bindsym \$mod+Shift+r restart
 
 EndOfConfig
 
