@@ -30,7 +30,7 @@ set \$WS4 "4: dev"
 set \$WS7 "7"
 set \$WS8 "8"
 set \$WS9 "9"
-set \$WS10 "10: mail&cal"
+set \$WS10 "10: org"
 
 EndOfConfig
 
