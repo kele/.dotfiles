@@ -51,6 +51,4 @@ alias rm=trash
 
 alias usermount="sudo mount -o rw,nosuid,nodev,uid=1000,gid=1000,shortname=mixed,dmask=0077,showexec,flush"
 
-source /home/kele/.zprofile
-
 export RUST_SRC_PATH="/home/kele/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"

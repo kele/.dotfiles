@@ -271,7 +271,10 @@ endif
 " Colorscheme switching
     let g:colorscheme_switcher_define_mappings = 0
 
-    noremap <F11> :PrevColorScheme<cr>
-    noremap <F12> :NextColorScheme<cr>
+    noremap <F9> :PrevColorScheme<cr>
+    noremap <F10> :NextColorScheme<cr>
 
 set laststatus=2
+
+set t_Co=256
+let base16colorspace=256

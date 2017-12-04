@@ -4,14 +4,13 @@ then
 APPS_INCLUDED="yes"
 
 set -e
-source ${WORKING_PATH}/submodules/lock.sh
 
 cat << EndOfConfig
 # INCLUDE: submodules/apps.sh
 
 set \$BROWSER google-chrome-stable
-set \$LAUNCHER rofi -show run
-set \$LOCK i3lock -i \$LOCK_BG
+set \$LAUNCHER dmenu_run
+set \$LOCK ${WORKING_PATH}/submodules/locking/lock.sh ${WORKING_PATH}/submodules/locking/i3lock_bg
 set \$TERMINAL xfce4-terminal
 EndOfConfig
 

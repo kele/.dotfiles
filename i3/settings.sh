@@ -1,0 +1,3 @@
+HAS_FONT_AWESOME="no"
+HAS_I3_PYTHON="no"
+HAS_ROFI="no"

@@ -6,7 +6,7 @@ FONT_INCLUDED="yes"
 cat << EndOfConfig
 # INCLUDE: submodules/font.sh
 
-font xft:Inconsolata Medium 9
+font xft:Inconsolata Medium 11
 
 EndOfConfig
 
