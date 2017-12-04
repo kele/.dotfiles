@@ -12,8 +12,6 @@ cat << EndOfConfig
 
 bar {
     status_command i3status
-    mode hide
-    modifier \$mod
 
     colors {
         background  \$base00
