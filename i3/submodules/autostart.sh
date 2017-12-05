@@ -10,7 +10,7 @@ cat << EndOfConfig
 EndOfConfig
 
 if [ "${HAS_REDSHIFT}" == "yes" ]; then
-    echo "exec redshift-gtk -l 51:17 5500:4000"
+    echo "exec redshift-gtk -l 51:17 -t 5500:4000"
 fi
 
 if [ "${DISABLE_SCREENSAVING}" == "yes" ]; then
@@ -27,7 +27,11 @@ if [ "${POLISH_LAYOUT}" == "yes" ]; then
 fi
 
 if [ "${CAPSLOCK_SUPER}" == "yes" ]; then
-    echo "setxkbmap -option caps:super"
+    echo "exec setxkbmap -option caps:super"
+fi
+
+if [ -n "${WALLPAPER_PATH}" ]; then
+    echo "exec feh --bg-center ${WALLPAPER_PATH}"
 fi
 
 echo ""

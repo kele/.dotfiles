@@ -23,3 +23,6 @@ HAS_ROFI="no"
 
 # Polish keyboard layout.
 POLISH_LAYOUT="yes"
+
+# Wallpaper
+WALLPAPER_PATH="${WORKING_PATH}/bg.jpg"
