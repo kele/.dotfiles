@@ -223,7 +223,7 @@ filetype plugin indent on    " required
 
     " CtrlP
     let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v(CMakeFiles|_build|bin)$',
+        \ 'dir': '\v(CMakeFiles|build|bin)$',
         \ 'file': '\v\.pyc$'
         \ }
     let g:ctlp_max_files = 0
@@ -278,3 +278,5 @@ set laststatus=2
 
 set t_Co=256
 let base16colorspace=256
+
+let g:clang_library_path="/usr/lib/llvm-5.0/lib/libclang-5.0.so.1"

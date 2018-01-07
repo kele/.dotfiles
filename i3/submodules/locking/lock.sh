@@ -1,6 +1,6 @@
 set -ex
 
-RESOLUTION=`xrandr | grep "*" | sed 's/^[ \t]*//;s/[ \t]*$//' | cut -d' ' -f1`
+RESOLUTION=`xrandr | grep "*" | head -n 1 | sed 's/^[ \t]*//;s/[ \t]*$//' | cut -d' ' -f1`
 HEIGHT=`echo ${RESOLUTION} | cut -d'x' -f2`
 
 IMG_FILENAME="${1}_${HEIGHT}.png"

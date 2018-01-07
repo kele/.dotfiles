@@ -12,6 +12,7 @@ source ${WORKING_PATH}/settings.sh
 
 source ${WORKING_PATH}/submodules/apps.sh
 source ${WORKING_PATH}/submodules/autostart.sh
+source ${WORKING_PATH}/submodules/backlight.sh
 source ${WORKING_PATH}/submodules/base16_i3status.sh
 source ${WORKING_PATH}/submodules/base16_look.sh
 source ${WORKING_PATH}/submodules/base16_palette.sh
