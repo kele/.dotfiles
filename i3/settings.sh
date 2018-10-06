@@ -24,5 +24,13 @@ HAS_ROFI="no"
 # Polish keyboard layout.
 POLISH_LAYOUT="yes"
 
+# Volume icon
+HAS_VOLUMEICON="yes"
+
 # Wallpaper
 WALLPAPER_PATH="${WORKING_PATH}/bg.jpg"
+
+# Apps
+RUN_TERMINAL="xfce4-terminal"
+RUN_LOCK="${WORKING_PATH}/submodules/locking/lock.sh ${WORKING_PATH}/submodules/locking/i3lock_bg"
+RUN_BROWSER="google-chrome-stable"

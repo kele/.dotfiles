@@ -34,6 +34,10 @@ if [ -n "${WALLPAPER_PATH}" ]; then
     echo "exec feh --bg-center ${WALLPAPER_PATH}"
 fi
 
+if [-n "${HAS_VOLUMEICON}" == "yes" ]; then
+    echo "exec volumeicon"
+fi
+
 echo ""
 
 fi

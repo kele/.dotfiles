@@ -18,6 +18,7 @@ source ${WORKING_PATH}/submodules/base16_look.sh
 source ${WORKING_PATH}/submodules/base16_palette.sh
 source ${WORKING_PATH}/submodules/basic.sh
 source ${WORKING_PATH}/submodules/dunst.sh
+source ${WORKING_PATH}/submodules/exit.sh
 source ${WORKING_PATH}/submodules/floating_apps.sh
 source ${WORKING_PATH}/submodules/font.sh
 source ${WORKING_PATH}/submodules/i3_refresh.sh

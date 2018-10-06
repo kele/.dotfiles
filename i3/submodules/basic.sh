@@ -63,7 +63,7 @@ bindsym \$mod+v split v
 bindsym \$mod+shift+v split h
 
 # Start application launcher
-bindsym \$mod+d exec \$LAUNCHER
+bindsym \$mod+d exec $RUN_LAUNCHER
 
 # Resize mode
 bindsym \$mod+r mode \$RESIZE_MODE
@@ -72,11 +72,11 @@ bindsym \$mod+r mode \$RESIZE_MODE
 bindsym \$mod+e mode \$LAYOUT_MODE
 
 # Screen lock
-bindsym \$mod+shift+o exec --no-startup-id \$LOCK
+bindsym \$mod+shift+o exec --no-startup-id $RUN_LOCK
 
 # App hotkeys
-bindsym \$mod+Return exec \$TERMINAL
-bindsym \$mod+w exec \$BROWSER
+bindsym \$mod+Return exec $RUN_TERMINAL
+bindsym \$mod+w exec $RUN_BROWSER
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym \$mod+Shift+r restart
