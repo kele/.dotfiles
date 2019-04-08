@@ -132,7 +132,7 @@ mode \$LAYOUT_MODE {
 bindsym \$mod+shift+x mode "\$EXIT_MODE"
 
 set \$EXIT_MODE System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
-mode \"$EXIT_MODE" {
+mode \$EXIT_MODE {
     bindsym k exec --no-startup-id \$LOCK, mode "default"
     bindsym l exec --no-startup-id i3-msg exit, mode "default"
     bindsym u exec --no-startup-id systemctl suspend, mode "default"
