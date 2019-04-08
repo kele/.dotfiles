@@ -3,7 +3,7 @@ then
 
 SOUND_INCLUDED="yes"
 
-source ${WORKING_PATH}/submodules/mod.sh
+source ${WORKING_PATH}/submodules/basic.sh
 source ${WORKING_PATH}/submodules/i3_refresh.sh
 source ${WORKING_PATH}/submodules/sound_commands.sh
 

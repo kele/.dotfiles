@@ -6,7 +6,7 @@ FONT_INCLUDED="yes"
 cat << EndOfConfig
 # INCLUDE: submodules/font.sh
 
-font xft:Droid Sans Mono 9
+font xft:Inconsolata Medium 9
 
 EndOfConfig
 

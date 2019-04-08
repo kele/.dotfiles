@@ -1,11 +1,11 @@
 # Map CapsLock to Super (Win) key
-CAPSLOCK_SUPER="no"
+CAPSLOCK_SUPER="yes"
 
 # Disable DPMS (power saving) and the screensaver
 DISABLE_SCREENSAVING="no"
 
 # Whether font awesome is installed. This is used e.g. for workspace pseudo-icons.
-HAS_FONT_AWESOME="no"
+HAS_FONT_AWESOME="yes"
 
 # i3 Python API is used for smart workspace switching (workspace 10* is ignored
 # while Alt-Tabbing)
@@ -19,7 +19,11 @@ HAS_REDSHIFT="yes"
 
 # Rofi is a launcher. Replacement for the default dmenu installed with i3 on
 # Ubuntu.
-HAS_ROFI="no"
+HAS_ROFI="yes"
+
+# Apps
+BROWSER_APP="firefox"
+TERMINAL="xfce4-terminal"
 
 # Polish keyboard layout.
 POLISH_LAYOUT="yes"
