@@ -11,7 +11,7 @@
 
 [alias]
     lg = log --pretty=format:"%h%x09%>(20)%an%x09%s"
-    edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim `f`"
+    edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim -p `f`"
     add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
 
 [diff]
