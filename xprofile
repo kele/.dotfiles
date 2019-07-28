@@ -47,3 +47,7 @@ xset s off
 redshift-gtk &
 
 nm-applet &
+
+xfconfd &
+xfsettingsd &
+xfce4-volumed &
