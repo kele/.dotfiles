@@ -30,24 +30,12 @@ fi
 # Needed to make GUI apps look better.
 export DESKTOP_SESSION=gnome
 
-# Polish keyboard layout.
-setxkbmap -layout pl
-
-# Making CapsLock work as Win key.
-setxkbmap -option caps:super
-
-# Disabling screensaver
-xset -dpms
-xset s off
-
-# Acer KG27IU-A color settings
-/usr/bin/dispwin -d1 /home/kele/.dotfiles/colors/KG271U\ \#1\ 2018-10-15\ 12-19\ 2.2\ F-S\ XYZLUT+MTX.icc
-
 # Make it easier on the eyes at night.
-redshift-gtk &
+redshift-gtk -l 51:17 -t 5500:4000 &
 
 nm-applet &
 
+xfce4-power-manager &
+xfce4-volumed &
 xfconfd &
 xfsettingsd &
-xfce4-volumed &

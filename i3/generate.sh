@@ -46,9 +46,6 @@ WALLPAPER_PATH="${WORKING_PATH}/bg.jpg"
 # Locking
 LOCK="${WORKING_PATH}/submodules/locking/lock.sh ${WORKING_PATH}/submodules/locking/i3lock_bg"
 
-# XFCE
-XFCE="yes"
-
 ################################################################################
 # SECTION: Apps
 ## App launcher
@@ -84,12 +81,7 @@ set \$I3STATUS_REFRESH killall -USR1 i3status
 EndOfConfig
 
 ################################################################################
-# SECTION: Autostart
-
-## Network Manager Applet
-if [ "${HAS_NM_APPLET}" == "yes" ]; then
-    echo "exec nm-applet"
-fi
+# SECTION: Restart
 
 ## Keyboard layout
 if [ "${POLISH_LAYOUT}" == "yes" ]; then
@@ -101,33 +93,20 @@ if [ "${CAPSLOCK_SUPER}" == "yes" ]; then
     echo "exec_always setxkbmap -option caps:super"
 fi
 
+## Wallpaper
 if [ -n "${WALLPAPER_PATH}" ]; then
     echo "exec_always feh --bg-center ${WALLPAPER_PATH}"
 fi
 
-if [ "${XFCE}" == "yes" ]; then
-    cat << EndOfConfig
-exec xfconfd
-exec xfsettingsd
-exec xfce4-volumed
-exec xfce4-power-manager
-EndOfConfig
-fi
-
 ################################################################################
+# SECTION: Screen
 
 cat << EndOfConfig
 ################################################################################"
 # SECTION: Screen
 EndOfConfig
 
-## redshift - helps with eye strain in the evening
-if [ "${HAS_REDSHIFT}" == "yes" ]; then
-    echo "exec redshift-gtk -l 51:17 -t 5500:4000"
-fi
-
 if [ "${DISABLE_SCREENSAVING}" == "yes" ]; then
-
     cat << EndOfConfig
 ## Disabling screensaving
 exec_always xset -dpms
