@@ -38,7 +38,7 @@ Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-markdown'
 
 " Python support
-Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
 
 " NERD Tree (file explorer)
 Plugin 'scrooloose/nerdtree' " NERD Tree
@@ -60,6 +60,15 @@ Plugin 'racer-rust/vim-racer'
 
 " Seamless Vim/Tmux navigation
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
+Plugin 'dense-analysis/ale'
+
+" Distraction free writing
+Plugin 'junegunn/goyo.vim'
+
+" Git gutter
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -212,15 +221,6 @@ filetype plugin indent on    " required
     map <leader>nf :NERDTreeFind<cr>
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '__pycache__']
 
-    " Python mode
-    "let g:pymode_rope = 0 " Disable rope autocompletion (use jedi instead)
-    let g:pymode_folding = 0 " Don't fold definitions, classes etc
-    let g:pymode_lint_checkers = []
-    let g:pymode_virtualenv = 1
-    let g:pymode_rope = 1
-    let g:pymode_rope_complete_on_dot = 0
-    let g:pymode_options_max_line_length = 100
-
     " CtrlP
     let g:ctrlp_custom_ignore = {
         \ 'dir': '\v(CMakeFiles|build|bin)$',
@@ -255,6 +255,9 @@ filetype plugin indent on    " required
 
     " Go
     autocmd FileType go map <F8> :GoBuild<cr>
+
+    " Python
+    au FileType python set expandtab tabstop=2 shiftwidth=2 softtabstop=2 foldmethod=indent
 
 " The Silver Searcher
 if executable('ag')
