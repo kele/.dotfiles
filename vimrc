@@ -54,10 +54,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'flazz/vim-colorschemes'
 
-" Rust support
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
-
 " Seamless Vim/Tmux navigation
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -230,28 +226,8 @@ filetype plugin indent on    " required
     let g:ctrlp_working_path_mode = 'ra'
 
 " Filetype specific
-    " Rust
-    au BufRead,BufNewFile *.rs map <leader>f :RustFmt<CR>
-    au FileType rust nmap gd <Plug>(rust-def)
-    au FileType rust nmap gs <Plug>(rust-def-split)
-    au FileType rust nmap gx <Plug>(rust-def-vertical)
-    au FileType rust nmap <leader>gd <Plug>(rust-doc)
-
-    " SML
-    au FileType sml setlocal makeprg=rlwrap\ sml\ '%'
-    au FileType sml set tabstop=4 shiftwidth=4 expandtab foldmethod=indent
-
     " C++
     au FileType cpp set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
-
-    " OCaml
-    au FileType ocaml set tabstop=2 shiftwidth=2 expandtab foldmethod=indent
-    au FileType ocaml noremap <localleader>d <Esc>:MerlinLocate<CR>
-    let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-    execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
-    " Haskell
-    au FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
     " Go
     autocmd FileType go map <F8> :GoBuild<cr>
@@ -281,5 +257,3 @@ set laststatus=2
 
 set t_Co=256
 let base16colorspace=256
-
-let g:clang_library_path="/usr/lib/llvm-5.0/lib/libclang-5.0.so.1"
