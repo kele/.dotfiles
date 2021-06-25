@@ -32,6 +32,9 @@ export DESKTOP_SESSION="gnome"
 export XDG_CURRENT_DESKTOP="gnome"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# Notifications
+dunst &
+
 # XFCE things
 xfce4-power-manager &
 xfsettingsd &
@@ -45,4 +48,3 @@ redshift-gtk -l 51:17 -t 5500:4500 &
 
 # Network manager
 nm-applet &
-
